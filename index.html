@@ -1113,7 +1113,7 @@ function render() {
       <td><span class="chip chip-format">${t.f.split(',')[0]}</span></td>
       <td>${t.cd}</td>
       <td><span class="chip ${chipSt}">${t.st}</span></td>
-      <td class="link-cell"><a href="${t.u}" target="_blank">${domain.length > 24 ? domain.slice(0, 22) + '…' : domain}</a></td>
+      <td class="link-cell"><a href="${t.u}" target="_blank" rel="noopener noreferrer">${domain.length > 24 ? domain.slice(0, 22) + '…' : domain}</a></td>
     </tr>
     <tr class="desc-row ${isExp ? '' : 'hidden'}" data-desc-n="${t.n}"><td colspan="9">${t.d}</td></tr>`;
   });
@@ -1175,7 +1175,7 @@ function renderCompare() {
       if (fld.key === "interactive") val = val ? "✓ Yes" : "✗ No";
       if (fld.key === "u") {
         let domain; try { domain = new URL(val).hostname.replace('www.',''); } catch(e) { domain = val; }
-        val = `<a href="${val}" target="_blank" style="color:var(--blue);text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:.78rem">${domain}</a>`;
+        val = `<a href="${val}" target="_blank" rel="noopener noreferrer" style="color:var(--blue);text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:.78rem">${domain}</a>`;
       }
       if (fld.key === "st") {
         const chipCls = val === "Active" ? "chip-active" : "chip-stale";
@@ -1335,7 +1335,7 @@ function showQuizResults() {
         <div class="quiz-match-name">${r.tracker.n}</div>
         <div class="quiz-match-org">${r.tracker.o} · ${r.tracker.cl} · ${r.tracker.s}</div>
         <div class="quiz-match-why">${r.tracker.d}</div>
-        <a href="${r.tracker.u}" target="_blank">Visit tracker →</a>
+        <a href="${r.tracker.u}" target="_blank" rel="noopener noreferrer">Visit tracker →</a>
       </div>
     `).join('');
   document.getElementById("quizFoot").innerHTML =
@@ -1591,7 +1591,7 @@ function triggerEasterEgg() {
     s: "This very page",
     st2: ["meta"],
     f: "You're looking at it",
-    u: window.location.href,
+    u: window.location.href.split('#')[0].split('?')[0],
     cd: "When someone remembers",
     d: "A tracker that tracks the tracker that tracks the trackers. We've gone too deep. There is no going back. The turtles go all the way down.",
     st: "Existential",
