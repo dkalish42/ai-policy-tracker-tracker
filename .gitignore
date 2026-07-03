@@ -7,3 +7,10 @@ AI Policy Tracker Tracker Preview.zip
 
 # Brand asset sources (local only — generated outputs live at repo root)
 brand-assets/
+
+# Local Claude Code settings
+.claude/
+
+# Internal working files — must not be published to the live site
+Due Diligence Report.md
+AI Policy Tracker Tracker.xlsx
