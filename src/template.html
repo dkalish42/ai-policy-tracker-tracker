@@ -681,6 +681,35 @@
   }
   .quiz-match a:hover { text-decoration: underline; }
 
+  /* ── Quiz: topic step and result details ── */
+  button.quiz-opt {
+    background: var(--bg);
+    color: inherit;
+    font: inherit;
+    font-size: .85rem;
+    text-align: left;
+    width: 100%;
+  }
+  button.quiz-opt:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+  .quiz-options.grid { display: grid; grid-template-columns: 1fr 1fr; gap: .4rem; }
+  .quiz-options.grid .quiz-opt:first-child { grid-column: 1 / -1; }
+  .quiz-note { font-size: .78rem; color: var(--text-2); background: var(--amber-bg); border: 1px solid #fde68a; border-radius: 6px; padding: .45rem .65rem; margin-bottom: .6rem; }
+  .quiz-match-fit { display: flex; flex-wrap: wrap; gap: .3rem; margin-bottom: .4rem; }
+  .quiz-match-fit .tag {
+    background: var(--blue-bg);
+    color: var(--blue);
+    border-radius: 4px;
+    padding: .05rem .4rem;
+    font-size: .7rem;
+    font-weight: 600;
+  }
+  .quiz-match-links { display: flex; flex-wrap: wrap; gap: .25rem 1.1rem; }
+  /* Keep Back / Next reachable when a step is longer than the screen. */
+  #quizFoot { position: sticky; bottom: 0; background: var(--bg); border-top: 1px solid var(--border-light); padding-top: .75rem; border-radius: 0 0 12px 12px; }
+  @media (max-width: 520px) {
+    .quiz-options.grid { grid-template-columns: 1fr; }
+  }
+
   /* ── Ticker ────────────────────────── */
   .ticker-footer {
     border-bottom: 1px solid var(--border);
@@ -1255,15 +1284,13 @@
   <div class="modal">
     <div class="modal-head">
       <h2>🧭 Which tracker should I use?</h2>
-      <p>Answer 4 quick questions. We'll match you to the right trackers.</p>
+      <p>Answer six quick questions. We'll match you to the right trackers.</p>
     </div>
     <div class="modal-body" id="quizBody">
       <!-- Steps injected by JS -->
     </div>
     <div class="modal-foot" id="quizFoot">
-      <button class="quiz-nav-btn quiz-back" id="quizBack">Back</button>
-      <div class="quiz-progress" id="quizProgress"></div>
-      <button class="quiz-nav-btn quiz-next" id="quizNext" disabled>Next</button>
+      <!-- Buttons injected by JS -->
     </div>
   </div>
 </div>
@@ -1398,7 +1425,7 @@ function rowHtml(t, i) {
       <td class="link-cell"><a href="${esc(t.u)}" target="_blank" rel="noopener noreferrer">${esc(domain.length > 24 ? domain.slice(0, 22) + "…" : domain)}</a></td>
     </tr>
     <tr class="desc-row ${isExp ? "" : "hidden"}"><td colspan="9">${esc(t.d)}
-      <div class="desc-meta">${tags ? `<span class="tags">${tags}</span>` : ""}<span>Cost: ${esc(t.cost)}</span>${t.v ? `<span>Last verified ${esc(fmtMonth(t.v))}</span>` : ""}<button type="button" class="copy-link" data-id="${esc(t.id)}">Copy link</button></div></td></tr>`;
+      <div class="desc-meta">${tags ? `<span class="tags">${tags}</span>` : ""}<span>Cost: ${esc(t.cost)}</span>${t.dl ? "<span>Downloadable data</span>" : ""}${t.v ? `<span>Last verified ${esc(fmtMonth(t.v))}</span>` : ""}<button type="button" class="copy-link" data-id="${esc(t.id)}">Copy link</button></div></td></tr>`;
 }
 
 function render() {
@@ -1489,6 +1516,7 @@ function renderCompare() {
     {key: "cd", label: "Cadence"},
     {key: "cost", label: "Cost"},
     {key: "interactive", label: "Interactive?"},
+    {key: "dl", label: "Data download?"},
     {key: "st", label: "Status"},
     {key: "v", label: "Last verified"},
     {key: "d", label: "Description"},
@@ -1499,7 +1527,7 @@ function renderCompare() {
     h += `<tr><th>${fld.label}</th>`;
     items.forEach(t => {
       let val = t[fld.key];
-      if (fld.key === "interactive") val = val ? "✓ Yes" : "✗ No";
+      if (fld.key === "interactive" || fld.key === "dl") val = val ? "✓ Yes" : "✗ No";
       else if (fld.key === "tp") val = esc(topicLabels(t).join(", "));
       else if (fld.key === "v") val = esc(fmtMonth(val));
       else if (fld.key === "u") {
@@ -1558,180 +1586,181 @@ document.querySelectorAll(".panel-close").forEach(b => {
 // ════════════════════════════════════════
 // QUIZ
 // ════════════════════════════════════════
-const QUIZ = [
-  {
-    q: "What geography do you need to cover?",
-    opts: [
-      {label: "US federal legislation", value: "us-fed"},
-      {label: "US state legislation", value: "us-states"},
+// Six short questions. The first picks a kind of tracker (the three tabs); the
+// topic question is then built from the data, so it only offers topics that kind has.
+const QUIZ_KINDS = [
+  {label: "Laws, regulation, and policy", desc: "Bills, enacted laws, agency guidance, national strategies", value: "policy"},
+  {label: "Lawsuits and enforcement", desc: "Court cases, rulings, regulator and attorney general actions", value: "litigation"},
+  {label: "Incidents, registers, and company practices", desc: "AI harms, government use of AI, lab safety scorecards, standards", value: "adjacent"},
+  {label: "Not sure yet", desc: "Look across everything", value: "any"},
+];
+const QUIZ_FORMAT_LABELS = {interactive: "Interactive", narrative: "Written analysis", data: "Downloadable data"};
+let quizStep = 0, quizAnswers = {};
+
+function quizPool() {
+  const kind = quizAnswers.kind;
+  return T.filter(t => t.c !== "meta" && (!kind || kind === "any" || tabOf(t) === kind));
+}
+
+function quizSteps() {
+  const pool = quizPool();
+  const counts = {};
+  pool.forEach(t => (t.tp || []).forEach(x => { counts[x] = (counts[x] || 0) + 1; }));
+  const topicOpts = [counts.general
+    ? {label: "No, broad coverage", desc: "Trackers that cut across sectors", value: "general"}
+    : {label: "No preference", value: "any"}];
+  Object.keys(TOPICS).forEach(x => {
+    if (x !== "general" && counts[x]) topicOpts.push({label: TOPICS[x], desc: counts[x] === 1 ? "1 tracker" : counts[x] + " trackers", value: x});
+  });
+  return [
+    {key: "kind", q: "What are you trying to follow?", opts: QUIZ_KINDS},
+    {key: "topic", q: "Any particular topic?", grid: true, opts: topicOpts},
+    {key: "geo", q: "What geography do you need to cover?", opts: [
+      {label: "US federal", value: "us-fed"},
+      {label: "US states", value: "us-states"},
       {label: "EU / AI Act specifically", value: "eu"},
       {label: "Global / multi-jurisdiction", value: "intl"},
-    ]
-  },
-  {
-    q: "What kind of resource do you need?",
-    opts: [
+      {label: "No preference", value: "any"},
+    ]},
+    {key: "format", q: "What kind of resource do you need?", opts: [
       {label: "A searchable, interactive database", desc: "I want to filter and drill down", value: "interactive"},
       {label: "Curated analysis and narrative", desc: "Just tell me what matters", value: "narrative"},
-      {label: "Raw data I can work with", desc: "CSVs, APIs, GitHub repos", value: "data"},
+      {label: "Raw data I can work with", desc: "CSV, spreadsheet, dataset, or API", value: "data"},
       {label: "I'll take whatever's good", value: "any"},
-    ]
-  },
-  {
-    q: "What's your primary use case?",
-    opts: [
+    ]},
+    {key: "use", q: "What's your primary use case?", opts: [
       {label: "Compliance monitoring", desc: "I need to know what rules apply to my org", value: "compliance"},
       {label: "Policy research / analysis", desc: "I'm studying or writing about AI policy", value: "research"},
       {label: "Government affairs / lobbying", desc: "I'm tracking bills for strategic purposes", value: "govaffairs"},
       {label: "General awareness", desc: "I just want to stay informed", value: "general"},
-    ]
-  },
-  {
-    q: "How often do you need updates?",
-    opts: [
+    ]},
+    {key: "freq", q: "How often do you need updates?", opts: [
       {label: "Real-time / daily", desc: "I can't miss anything", value: "realtime"},
       {label: "Weekly to monthly", desc: "Regular check-ins are fine", value: "regular"},
       {label: "Quarterly or annual snapshots", desc: "Big picture is what matters", value: "periodic"},
-    ]
-  }
-];
-let quizStep = 0, quizAnswers = [];
-
-function buildQuiz() {
-  const body = document.getElementById("quizBody");
-  let stepsHtml = '';
-  QUIZ.forEach((step, si) => {
-    stepsHtml += `<div class="quiz-step ${si === 0 ? 'active' : ''}" data-step="${si}">
-      <div class="quiz-q">${step.q}</div>
-      <div class="quiz-options">`;
-    step.opts.forEach((opt, oi) => {
-      stepsHtml += `<div class="quiz-opt" data-step="${si}" data-val="${opt.value}">
-        <div class="opt-label">${opt.label}</div>
-        ${opt.desc ? `<div class="opt-desc">${opt.desc}</div>` : ''}
-      </div>`;
-    });
-    stepsHtml += `</div></div>`;
-  });
-  stepsHtml += `<div class="quiz-results" id="quizResults"></div>`;
-  body.innerHTML = stepsHtml;
-
-  body.querySelectorAll('.quiz-opt').forEach(o => {
-    o.addEventListener('click', () => {
-      const si = parseInt(o.dataset.step);
-      body.querySelectorAll(`.quiz-opt[data-step="${si}"]`).forEach(x => x.classList.remove('selected'));
-      o.classList.add('selected');
-      quizAnswers[si] = o.dataset.val;
-      document.getElementById("quizNext").disabled = false;
-    });
-  });
-
-  updateQuizUI();
-}
-
-function updateQuizUI() {
-  document.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('active'));
-  const current = document.querySelector(`.quiz-step[data-step="${quizStep}"]`);
-  if (current) current.classList.add('active');
-
-  const prog = document.getElementById("quizProgress");
-  prog.innerHTML = QUIZ.map((_, i) =>
-    `<div class="quiz-dot ${i < quizStep ? 'done' : ''} ${i === quizStep ? 'current' : ''}"></div>`
-  ).join('');
-
-  document.getElementById("quizBack").style.visibility = quizStep === 0 ? 'hidden' : 'visible';
-  const nextBtn = document.getElementById("quizNext");
-  nextBtn.disabled = !quizAnswers[quizStep];
-  nextBtn.textContent = quizStep === QUIZ.length - 1 ? 'See Results' : 'Next';
+    ]},
+  ];
 }
 
 function scoreQuiz() {
-  const [geo, format, useCase, freq] = quizAnswers;
-  return T.map(t => {
+  const {topic, geo, format, use: useCase, freq} = quizAnswers;
+  return quizPool().map(t => {
     let score = 0;
+    const fits = [];
+    const tp = t.tp || [];
+    // Topic
+    if (topic === "general" && tp.includes("general")) { score += 3; fits.push(TOPICS.general); }
+    else if (topic && topic !== "any" && topic !== "general" && tp.includes(topic)) { score += 5; fits.push(TOPICS[topic]); }
     // Geography
-    if (t.st2.includes(geo)) score += 3;
+    if (geo && geo !== "any" && t.st2.includes(geo)) { score += 3; fits.push(JURS[geo]); }
     if (t.st2.length > 2) score += 1; // breadth bonus
     // Format
-    if (format === "interactive" && t.interactive) score += 2;
-    if (format === "narrative" && !t.interactive) score += 2;
-    if (format === "data" && t.f.toLowerCase().includes("github")) score += 3;
+    if (format === "interactive" && t.interactive) { score += 2; fits.push(QUIZ_FORMAT_LABELS.interactive); }
+    if (format === "narrative" && !t.interactive) { score += 2; fits.push(QUIZ_FORMAT_LABELS.narrative); }
+    if (format === "data" && t.dl) { score += 3; fits.push(QUIZ_FORMAT_LABELS.data); }
     if (format === "any") score += 1;
     // Use case
-    if (useCase === "compliance" && (t.n.includes("Orrick") || t.f.includes("Compliance") || t.n.includes("Holistic") || t.n.includes("DLA Piper") || t.n.includes("Manatt") || t.c === "law")) score += 2;
+    if (useCase === "compliance" && (t.n.includes("Holistic") || t.f.includes("Compliance") || t.c === "law")) score += 2;
     if (useCase === "research" && (t.c === "think" || t.c === "acad" || t.c === "ind")) score += 2;
     if (useCase === "govaffairs" && (t.cd.includes("Daily") || t.cd.includes("Real") || t.cd.includes("Continuous") || t.c === "biz")) score += 2;
     if (useCase === "general") score += 1;
     // Frequency
-    if (freq === "realtime" && (t.cd.includes("Daily") || t.cd.includes("Real") || t.cd.includes("Continuous"))) score += 2;
-    if (freq === "regular" && (t.cd.includes("Regular") || t.cd.includes("Ongoing") || t.cd.includes("Quarterly"))) score += 2;
-    if (freq === "periodic" && (t.cd.includes("Annual") || t.cd.includes("Periodic"))) score += 2;
+    const cd = t.cd.toLowerCase();
+    const fast = /daily|real|continuous/.test(cd);
+    const steady = /regular|ongoing|quarterly|weekly|monthly|rolling/.test(cd);
+    const slow = /annual|periodic|biennial|session/.test(cd);
+    if ((freq === "realtime" && fast) || (freq === "regular" && steady) || (freq === "periodic" && slow)) { score += 2; fits.push("Cadence: " + t.cd); }
     // Freshness penalty
     if (t.st !== "Active") score -= 3;
-    return {tracker: t, score};
+    return {tracker: t, score, fits};
   }).sort((a, b) => b.score - a.score).slice(0, 3);
 }
 
-function showQuizResults() {
-  document.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('active'));
-  const results = scoreQuiz();
-  const el = document.getElementById("quizResults");
-  el.classList.add('active');
-  el.innerHTML = `<div class="quiz-q">Your top matches:</div>` +
-    results.map((r, i) => `
-      <div class="quiz-match">
-        <div class="quiz-match-rank">#${i + 1} match</div>
-        <div class="quiz-match-name">${r.tracker.n}</div>
-        <div class="quiz-match-org">${r.tracker.o} · ${r.tracker.cl} · ${r.tracker.s}</div>
-        <div class="quiz-match-why">${r.tracker.d}</div>
-        <a href="${r.tracker.u}" target="_blank" rel="noopener noreferrer">Visit tracker →</a>
-      </div>
-    `).join('');
-  document.getElementById("quizFoot").innerHTML =
-    `<button class="quiz-nav-btn quiz-back" onclick="openQuiz()">Start Over</button>
+function renderQuiz() {
+  const steps = quizSteps();
+  const body = document.getElementById("quizBody");
+  const foot = document.getElementById("quizFoot");
+  if (quizStep >= steps.length) {
+    const results = scoreQuiz();
+    const topic = quizAnswers.topic;
+    let note = "";
+    if (topic && topic !== "any" && topic !== "general") {
+      const hits = results.filter(r => (r.tracker.tp || []).includes(topic)).length;
+      if (hits < results.length) note = `<p class="quiz-note">Only ${hits} of these ${hits === 1 ? "covers" : "cover"} ${esc(TOPICS[topic])}. The ${results.length - hits === 1 ? "other is the closest alternative" : "others are the closest alternatives"}.</p>`;
+    }
+    body.innerHTML = `<div class="quiz-results active"><div class="quiz-q">Your top matches:</div>${note}` +
+      results.map((r, i) => {
+        const t = r.tracker;
+        return `<div class="quiz-match">
+        <div class="quiz-match-rank">#${i + 1} match${t.st !== "Active" ? ' · <span class="chip chip-stale">Stale</span>' : ""}</div>
+        <div class="quiz-match-name">${esc(t.n)}</div>
+        <div class="quiz-match-org">${esc(t.o)} · ${esc(t.cl)} · ${esc(t.s)}</div>
+        ${r.fits.length ? `<div class="quiz-match-fit">${r.fits.map(f => `<span class="tag">${esc(f)}</span>`).join("")}</div>` : ""}
+        <div class="quiz-match-why">${esc(t.d)}</div>
+        <div class="quiz-match-links"><a href="#${esc(t.id)}" class="quiz-show" data-id="${esc(t.id)}">Show in the list</a><a href="${esc(t.u)}" target="_blank" rel="noopener noreferrer">Visit tracker →</a></div>
+      </div>`;
+      }).join("") + `</div>`;
+    foot.innerHTML = `<button class="quiz-nav-btn quiz-back" data-quiz="restart" type="button">Start Over</button>
      <div></div>
-     <button class="quiz-nav-btn quiz-next" onclick="closeQuiz()">Done</button>`;
+     <button class="quiz-nav-btn quiz-next" data-quiz="done" type="button">Done</button>`;
+    return;
+  }
+  const step = steps[quizStep];
+  const answer = quizAnswers[step.key];
+  body.innerHTML = `<div class="quiz-step active">
+      <div class="quiz-q">${esc(step.q)}</div>
+      <div class="quiz-options${step.grid ? " grid" : ""}">` +
+    step.opts.map(opt => `<button type="button" class="quiz-opt${opt.value === answer ? " selected" : ""}" data-val="${esc(opt.value)}" aria-pressed="${opt.value === answer}">
+        <div class="opt-label">${esc(opt.label)}</div>
+        ${opt.desc ? `<div class="opt-desc">${esc(opt.desc)}</div>` : ""}
+      </button>`).join("") +
+    `</div></div>`;
+  foot.innerHTML = `<button class="quiz-nav-btn quiz-back" data-quiz="back" type="button"${quizStep === 0 ? ' style="visibility:hidden"' : ""}>Back</button>
+     <div class="quiz-progress">${steps.map((_, i) => `<div class="quiz-dot ${i < quizStep ? "done" : ""} ${i === quizStep ? "current" : ""}"></div>`).join("")}</div>
+     <button class="quiz-nav-btn quiz-next" data-quiz="next" type="button"${answer ? "" : " disabled"}>${quizStep === steps.length - 1 ? "See Results" : "Next"}</button>`;
 }
 
-function resetQuiz() {
-  quizStep = 0; quizAnswers = [];
-  const res = document.getElementById("quizResults");
-  if (res) { res.classList.remove('active'); res.innerHTML = ''; }
-  document.querySelectorAll('.quiz-opt').forEach(o => o.classList.remove('selected'));
-  document.getElementById("quizFoot").innerHTML =
-    `<button class="quiz-nav-btn quiz-back" id="quizBack">Back</button>
-     <div class="quiz-progress" id="quizProgress"></div>
-     <button class="quiz-nav-btn quiz-next" id="quizNext" disabled>Next</button>`;
-  updateQuizUI();
-  document.getElementById("quizBack").addEventListener('click', () => { if (quizStep > 0) { quizStep--; updateQuizUI(); }});
-  document.getElementById("quizNext").addEventListener('click', quizNextHandler);
+function openQuiz() {
+  quizStep = 0;
+  quizAnswers = {};
+  renderQuiz();
+  document.getElementById("quizOverlay").classList.add("open");
 }
-
-function quizNextHandler() {
-  if (quizStep < QUIZ.length - 1) { quizStep++; updateQuizUI(); }
-  else showQuizResults();
-}
-
 function closeQuiz() {
   document.getElementById("quizOverlay").classList.remove("open");
 }
 
-function openQuiz() {
-  document.getElementById("quizOverlay").classList.add("open");
-  // Build DOM first, THEN reset state
-  buildQuiz();
-  quizStep = 0;
-  quizAnswers = [];
-  document.querySelectorAll('.quiz-opt').forEach(o => o.classList.remove('selected'));
-  // Restore footer buttons
-  document.getElementById("quizFoot").innerHTML =
-    `<button class="quiz-nav-btn quiz-back" id="quizBack">Back</button>
-     <div class="quiz-progress" id="quizProgress"></div>
-     <button class="quiz-nav-btn quiz-next" id="quizNext" disabled>Next</button>`;
-  updateQuizUI();
-  document.getElementById("quizBack").addEventListener('click', () => { if (quizStep > 0) { quizStep--; updateQuizUI(); }});
-  document.getElementById("quizNext").addEventListener('click', quizNextHandler);
-}
-
+document.getElementById("quizBody").addEventListener("click", e => {
+  const show = e.target.closest(".quiz-show");
+  if (show) {
+    e.preventDefault();
+    const t = byId(show.dataset.id);
+    closeQuiz();
+    if (t) showTracker(t, false);
+    return;
+  }
+  const opt = e.target.closest(".quiz-opt");
+  if (!opt) return;
+  const steps = quizSteps();
+  const key = steps[quizStep].key;
+  quizAnswers[key] = opt.dataset.val;
+  // A different kind of tracker has different topics, so a stale topic answer is dropped.
+  if (key === "kind" && quizAnswers.topic && !quizSteps()[1].opts.some(o => o.value === quizAnswers.topic)) delete quizAnswers.topic;
+  renderQuiz();
+  const again = document.querySelector('#quizBody .quiz-opt.selected');
+  if (again) again.focus({preventScroll: true});
+});
+document.getElementById("quizFoot").addEventListener("click", e => {
+  const b = e.target.closest("[data-quiz]");
+  if (!b || b.disabled) return;
+  const act = b.dataset.quiz;
+  if (act === "back" && quizStep > 0) quizStep--;
+  else if (act === "next") quizStep++;
+  else if (act === "restart") { quizStep = 0; quizAnswers = {}; }
+  else if (act === "done") { closeQuiz(); return; }
+  renderQuiz();
+  document.getElementById("quizBody").scrollTop = 0;
+});
 document.getElementById("quizBtn").addEventListener("click", openQuiz);
 document.getElementById("quizOverlay").addEventListener("click", e => {
   if (e.target === document.getElementById("quizOverlay")) closeQuiz();
@@ -2137,6 +2166,7 @@ function triggerEasterEgg() {
     tp: [],
     v: "",
     a: "",
+    dl: false,
     n: "🐢 AI Policy Tracker Tracker Tracker",
     o: "You, right now, reading this",
     c: "meta",

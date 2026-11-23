@@ -58,6 +58,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-03",
       "verified": "2026-11",
       "description": "The largest and most authoritative source, recently rebranded as the Policy Navigator. 900+ national AI policies (1,300+ initiatives from 80+ jurisdictions) submitted directly by governments."
@@ -77,6 +78,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-03",
       "verified": "2026-11",
       "description": "The go-to for state AI legislation. Categorized by topic and run by the organization dedicated to tracking state legislatures. NCSL's 2026 count stood at 1,539 measures introduced and 280 enacted as of early October."
@@ -96,6 +98,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-03",
       "verified": "2026-11",
       "description": "Independent civic-tech feed of Congress.gov bulk data, filtered to subject 5158 (Artificial Intelligence). Bare-bones but authoritative."
@@ -115,6 +118,7 @@
       "status": "Active",
       "cost": "Summary free; full tracker member-gated",
       "interactive": true,
+      "data": false,
       "added": "2026-03",
       "verified": "2026-11",
       "description": "Cross-sectoral AI governance bills. IAPP's privacy DNA means strong data protection angle. Updated April 2026, but the full chart and map now sit behind an IAPP member login."
@@ -134,6 +138,7 @@
       "status": "Active",
       "cost": "Summary free; full tracker member-gated",
       "interactive": true,
+      "data": false,
       "added": "2026-04",
       "verified": "2026-11",
       "description": "International developments: EU AI Act, Japan, South Korea. Privacy-forward framing. Refreshed October 2026, though the full tracker content sits behind an IAPP member login."
@@ -153,6 +158,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-03",
       "verified": "2026-11",
       "description": "Federal-only with a civil rights lens. 118th and 119th Congress. Republished November 2026 after more than a year without a refresh."
@@ -172,6 +178,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": true,
       "added": "2026-03",
       "verified": "2026-11",
       "description": "Originally a one-time July 2024 release, now a living archive hosted on CSET's Emerging Technology Observatory. 1,000+ governance documents mapped to taxonomies of risks, actors, and sectors, with dozens added quarterly (recent additions include the FY2026 NDAA AI sections and the December 2025 Executive Order). An expanded research collaboration was announced in August 2026. The deepest taxonomy-based view available."
@@ -191,6 +198,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-03",
       "verified": "2026-11",
       "description": "Launched March 2026. Structured analysis of federal and state bills by trained evaluators."
@@ -210,6 +218,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": false,
+      "data": false,
       "added": "2026-03",
       "verified": "2026-11",
       "description": "Advocacy-oriented, focused on AI transparency. All 2026 AI bills in one place."
@@ -229,6 +238,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": false,
+      "data": false,
       "added": "2026-03",
       "verified": "2026-11",
       "description": "Not real-time but the annual gold standard. 2026 edition tracks regulatory activity and enforcement actions across 47 countries."
@@ -248,6 +258,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": false,
+      "data": false,
       "added": "2026-03",
       "verified": "2026-11",
       "description": "Center-right think tank. Five intent-based categories. Good for quick legislative taxonomy."
@@ -267,6 +278,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": false,
+      "data": false,
       "added": "2026-03",
       "verified": "2026-11",
       "description": "Analytical dive into state AI legislative trends. Excellent for 'what themes are emerging'."
@@ -286,6 +298,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": false,
+      "data": false,
       "added": "2026-03",
       "verified": "2026-11",
       "description": "Country-by-country narratives for 28 jurisdictions plus six international bodies (African Union, Council of Europe, EU, G7, OECD, UN). IP, antitrust, data protection, M&A."
@@ -305,6 +318,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-03",
       "verified": "2026-11",
       "description": "200+ state AI laws filterable by state, date, or domain. The most polished law firm offering."
@@ -324,6 +338,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": false,
+      "data": false,
       "added": "2026-03",
       "verified": "2026-11",
       "description": "Compilation of Akin's own articles on AI legislation, litigation, and enforcement globally. Not a structured event database, but the steady cadence of posts tracks events as they happen."
@@ -343,6 +358,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-03",
       "verified": "2026-11",
       "description": "Bill summaries, sponsor info, status, with monthly PDF editions of the federal and state trackers (latest November 2026). Clean interface. A reliable workhorse."
@@ -362,6 +378,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-03",
       "verified": "2026-11",
       "description": "State-by-state interactive map covering automated decision-making and data protection."
@@ -381,6 +398,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-03",
       "verified": "2026-11",
       "description": "State-by-state interactive map of US AI legislation: proposed, failed, and enacted across all 50 states."
@@ -400,6 +418,7 @@
       "status": "Stale",
       "cost": "Free",
       "interactive": false,
+      "data": false,
       "added": "2026-03",
       "verified": "2026-11",
       "description": "Federal-only. Congress.gov data with Mintz analysis layered on. Scope is locked to the 118th Congress; not refreshed for the 119th."
@@ -419,6 +438,7 @@
       "status": "Active",
       "cost": "Free tier + paid",
       "interactive": true,
+      "data": false,
       "added": "2026-03",
       "verified": "2026-11",
       "description": "The commercial powerhouse. Custom summaries for every bill version. 1,561 AI bills across 45 states YTD 2026 (1,208 bills / 145 enacted in 2025)."
@@ -438,6 +458,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-03",
       "verified": "2026-11",
       "description": "Free AI-specific tracker from a legislative monitoring company. Good for teams needing a no-cost option."
@@ -457,6 +478,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-03",
       "verified": "2026-11",
       "description": "Side-by-side comparison of AI governance across 40+ countries. Modeled on their successful 'Data Protection Laws of the World' tool. Covers transparency, accountability, bias, and risk classification."
@@ -476,6 +498,7 @@
       "status": "Stale",
       "cost": "Free",
       "interactive": false,
+      "data": false,
       "added": "2026-03",
       "verified": "2026-11",
       "description": "One-time July 2025 global AI regulation guide covering IP, procurement, governance, and risk. Strong on cross-border perspective, but a snapshot rather than a maintained tracker."
@@ -495,6 +518,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": false,
+      "data": false,
       "added": "2026-03",
       "verified": "2026-11",
       "description": "The only dedicated healthcare AI policy tracker. Covers FDA, CMS, ONC, FTC, and state legislation. July 2026 update: 280+ health AI bills introduced and 33 signed into law across 22 states, plus 88 chatbot bills (12 enacted in 11 states). Fills the sector-specific gap."
@@ -514,6 +538,7 @@
       "status": "Active",
       "cost": "Free (registration required)",
       "interactive": true,
+      "data": false,
       "added": "2026-03",
       "verified": "2026-11",
       "description": "The only tracker cataloging municipal AI governance policies. Tracks how cities use and regulate generative AI in operations and services. Fills the 'below the state line' gap."
@@ -533,6 +558,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-03",
       "verified": "2026-11",
       "description": "Legislation, incidents, and lawsuits globally. From a commercial AI governance platform. Strong on enforcement actions, which most trackers miss."
@@ -552,6 +578,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": false,
+      "data": false,
       "added": "2026-03",
       "verified": "2026-11",
       "description": "Rates and ranks 90 countries on 12 democratic-values metrics. 1,739 pages with 8,500+ footnotes. The deepest cross-country AI policy comparison available. Strong Global South coverage."
@@ -571,6 +598,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-03",
       "verified": "2026-11",
       "description": "Ranks 195 governments on AI readiness across 69 indicators and 6 pillars. The benchmark for 'can your government even govern AI?' Complements legislation trackers with capacity data."
@@ -590,6 +618,7 @@
       "status": "Stale",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-03",
       "verified": "2026-11",
       "description": "Mapped 160+ ethical AI frameworks worldwide. Revealed how few have enforcement mechanisms. No longer actively maintained, but the archived inventory remains a useful historical reference."
@@ -609,6 +638,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-04",
       "verified": "2026-11",
       "description": "The only sector-topic tracker dedicated to chatbot legislation. About 126 bills across 37 states plus 3 federal proposals, sorted into six regulatory categories: transparency, age verification, content safety, professional licensure, data protection, and liability. Fills the sector gap for consumer-facing AI products."
@@ -628,6 +658,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": false,
+      "data": false,
       "added": "2026-04",
       "verified": "2026-11",
       "description": "Compilation of CDT's own articles and analysis on AI policy, maintained by their AI Governance Lab. Civil-liberties lens. More an article archive than a structured tracker, but a longstanding civil-society voice in US AI policy."
@@ -647,6 +678,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": false,
+      "data": false,
       "added": "2026-04",
       "verified": "2026-11",
       "description": "Cross-jurisdictional AI law, regulation, and policy tracker from a major international firm. Complements White & Case and DLA Piper as a third global-firm option with distinct jurisdictional emphasis."
@@ -666,6 +698,7 @@
       "status": "Active",
       "cost": "Paid tiers",
       "interactive": true,
+      "data": false,
       "added": "2026-04",
       "verified": "2026-11",
       "description": "Commercial, AI-powered tracker covering Congress, all 50 states, DC, and Puerto Rico. AI-generated bill summaries, automatic topic classification, and version diffs set it apart from MultiState and StateScape. Now operating under the SAI360 umbrella; no free tier currently advertised."
@@ -685,6 +718,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-04",
       "verified": "2026-11",
       "description": "Tracks implementation of UNESCO's 2021 AI Ethics Recommendation across member states. Country profiles draw on the Readiness Assessment Methodology (RAM). The only tracker with a universal UN mandate, with notable depth on Global South jurisdictions."
@@ -704,6 +738,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-04",
       "verified": "2026-11",
       "description": "Will Rinehart's AEI project. State bill tracker map, federal bill tracker, and a weekly update table, paired with economic-impact dashboards on data center moratoriums and business AI adoption. Center-right framing that combines legislative tracking with cost-of-regulation analysis."
@@ -723,6 +758,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-04",
       "verified": "2026-11",
       "description": "Structured laws-and-regulations directory filterable by jurisdiction and topic, with deep links to source instruments. Covers long-tail jurisdictions (Latvia, Hungary, El Salvador, Shenzhen) that other global firm trackers skip."
@@ -742,6 +778,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-04",
       "verified": "2026-11",
       "description": "Free interactive global map. Each entry tagged by enforcement status (in effect / non-binding / voluntary / not in effect) and type, a status view other global trackers don't offer."
@@ -761,6 +798,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-04",
       "verified": "2026-11",
       "description": "State-by-state interactive tracker of healthcare AI laws, sliced into three sub-atlases by stakeholder role (developers, payors, providers) plus a federal-landscape section. Launched January 2026."
@@ -780,6 +818,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-04",
       "verified": "2026-11",
       "description": "Tracks judicial-branch AI rules: federal and state court standing orders, local rules, and decisions on AI use in court filings. Hundreds of orders indexed (688 on AI in filings or drafting alone). The most detailed tracker of court-issued AI rules; IAPP's new legal-ethics tracker covers similar ground internationally."
@@ -799,6 +838,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-04",
       "verified": "2026-11",
       "description": "Interactive state-by-state map of US AI legislation, covering bills across all topic areas. Published by an employment-focused firm, but the map itself is general-purpose AI legislation rather than employment-specific."
@@ -818,6 +858,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-04",
       "verified": "2026-11",
       "description": "Released April 2026. Map of state laws affecting private-sector AI with a published category taxonomy (consumer-facing, high-risk, pricing, provenance, employment, health) and an explicit choice to exclude privacy-with-AI bills."
@@ -837,6 +878,7 @@
       "status": "Stale",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-04",
       "verified": "2026-11",
       "description": "A Magic Circle firm's view of US state AI laws, and the only US-state tracker from a non-US-headquartered firm. Sits inside a broader Global AI Regulation hub so users can pivot from a state law to EU/APAC analysis. No updates since October 2, 2025."
@@ -856,6 +898,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": true,
       "added": "2026-04",
       "verified": "2026-11",
       "description": "1,800+ documented AI harm/failure incidents, indexed and queryable. Open-submission with editorial curation. The closest thing to aviation-style incident reporting for AI, covering the harms side that legislation trackers ignore."
@@ -875,6 +918,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-04",
       "verified": "2026-11",
       "description": "Periodic structured scorecard ranking foundation-model developers on ~100 transparency indicators with year-over-year comparable scores. Third edition (December 2025) scores 13 companies, adding DeepSeek, Alibaba, xAI, and Midjourney. The only corporate-disclosure scorecard for AI labs themselves."
@@ -894,6 +938,7 @@
       "status": "Stale",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-04",
       "verified": "2026-11",
       "description": "Public register of identified algorithmic and automated decision-making tools used by UK government bodies. Civil-society source for ADM transparency where official inventories are partial. The register has sat at 55 tools since October 2023, and the official UK ATRS has since overtaken it."
@@ -913,6 +958,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-04",
       "verified": "2026-11",
       "description": "Global tracker of AI-related litigation and case law, filterable by jurisdiction, claim type, and status. Covers the AI lawsuits (IP, defamation, employment, product liability) that are shaping AI governance as fast as legislation."
@@ -932,6 +978,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": true,
       "added": "2026-05",
       "verified": "2026-11",
       "description": "The deepest tracker of AI copyright litigation worldwide: 148 US suits as of October 2026, plus 30 elsewhere at the last world-map count. The site now also runs AI tort and data-center lawsuit trackers. Mapped, spreadsheeted, and organized by litigation stage (appeals, summary judgment, etc.) with individual case briefings. Curated by Prof. Edward Lee, whose academic work and Congressional testimony on AI training fair use sit alongside the dataset."
@@ -951,6 +998,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": true,
       "added": "2026-04",
       "verified": "2026-11",
       "description": "Second edition (2026) measures 135 countries against a human-rights-grounded benchmark: 38 indicators across three pillars, backed by 1,872 reviewed documents with an interactive evidence explorer, map, and country comparison tool. Distinct from CAIDP (democratic-values lens) and Oxford Insights (capacity lens). Returned after a two-year gap between editions."
@@ -970,6 +1018,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-04",
       "verified": "2026-11",
       "description": "State-by-state status ledger for Treaty 225 (the world's first binding international AI treaty): signatures, ratifications, declarations, reservations, entry-into-force dates. Not yet in force: that takes five ratifications including three CoE member states, and so far only the EU has ratified (May 2026). 21 signatories as of October 2026. Non-CoE signatories include the US, Canada, Israel, and Japan."
@@ -989,6 +1038,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": false,
+      "data": false,
       "added": "2026-04",
       "verified": "2026-11",
       "description": "50-state catalog of which insurance regulators have adopted the NAIC Model Bulletin on insurer use of AI: 28 states plus DC as of November 2026, with bulletin numbers, citations, and adoption dates. Now maintained by the Big Data & AI (H) Working Group. The definitive sector-specific tracker for insurance AI regulation."
@@ -1008,6 +1058,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-05",
       "verified": "2026-11",
       "description": "Source-backed guide to Spain's AI governance, and the only tracker dedicated to Spain. Combines a policy timeline with a filterable library of primary sources, covering Spain-specific infrastructure (AESIA, ALIA) alongside EU AI Act implementation. Curated by an independent researcher; English-first, drawing on Spanish-language primary sources."
@@ -1027,6 +1078,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-07",
       "verified": "2026-11",
       "description": "The canonical unofficial EU AI Act resource: article-by-article Act Explorer, implementation timeline, and a national implementation tracker showing which member states have actually designated their authorities (9 of 27 fully, as of June 2026)."
@@ -1046,6 +1098,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-07",
       "verified": "2026-11",
       "description": "The Commission's official single information platform for the AI Act: Act Explorer, Compliance Checker, and a maintained implementation timeline. The July 2026 AI Omnibus moved high-risk obligations to December 2027 (standalone systems) and August 2028 (product-embedded)."
@@ -1065,6 +1118,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": true,
       "added": "2026-07",
       "verified": "2026-11",
       "description": "28,000+ documented digital-policy events across legislative, executive, and judicial branches since 2021, with a dedicated AI regulation thread. Academic rigor, daily updates, CC BY licensed. One of the most systematic trackers anywhere, and a research partner behind the Stanford AI Index's 2026 global AI governance analysis."
@@ -1084,6 +1138,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": true,
       "added": "2026-07",
       "verified": "2026-11",
       "description": "A single tech lawyer covering every country on Earth: an interactive map with AI law and policy profiles for 200+ jurisdictions, a rolling newsfeed, a comparison tool, and now an API over 3,800+ records. The most complete single-curator map in the field."
@@ -1103,6 +1158,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-07",
       "verified": "2026-11",
       "description": "1,500+ AI policy documents across African countries, filterable by country and policy area. From the same org as the Global Index on Responsible AI. The deepest coverage of the continent most trackers skip entirely."
@@ -1122,6 +1178,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-07",
       "verified": "2026-11",
       "description": "Measures AI progress across 20 Latin American and Caribbean countries via 100+ sub-indicators, classifying countries as pioneers, adopters, or explorers. Four editions so far (2023 to 2026); the regional reference for a region global trackers underweight."
@@ -1141,6 +1198,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": true,
       "added": "2026-07",
       "verified": "2026-11",
       "description": "Instrument-level tracking of binding AI regulations and bills across 27 Latin American and Caribbean countries (laws, decrees, resolutions, administrative acts), with a downloadable 40-variable dataset and formal versioning (V3.3, October 2026). Where ILIA measures readiness, this catalogs the actual rules. Spanish-language."
@@ -1160,6 +1218,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-07",
       "verified": "2026-11",
       "description": "Tracks AI governance across all eleven Southeast Asian countries plus ASEAN-level initiatives; the only systematic tracker for the region. Runner-up at UNESCO's Global Forum on AI Ethics 2025. Coverage leans high-level, favoring national strategies and framework laws over sectoral instruments."
@@ -1179,6 +1238,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-07",
       "verified": "2026-11",
       "description": "AI Governance InternationaL Evaluation Index from Yi Zeng's team and partner institutes. Evaluates 40 countries across 4 pillars, 17 dimensions, and 43 indicators, up from 14 countries in the 2024 inaugural edition. The only major cross-country AI governance index led by Chinese research institutions."
@@ -1198,6 +1258,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-07",
       "verified": "2026-11",
       "description": "Country-by-country AI regulatory maturity with Low/Medium/High risk tiers per jurisdiction and side-by-side comparison of any two. The risk-rating angle differentiates it from the other global firm trackers. Updated July 2026."
@@ -1217,6 +1278,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-07",
       "verified": "2026-11",
       "description": "Launched May 2026. Only tracks laws that actually passed: enacted state AI legislation since 2018, filterable by ~15 topics from biometrics to healthcare."
@@ -1236,6 +1298,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-07",
       "verified": "2026-11",
       "description": "Cross-jurisdiction status tracker spanning 16 European jurisdictions plus APAC and the Middle East, including Saudi Arabia and the UAE, which almost no other firm tracker covers."
@@ -1255,6 +1318,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-07",
       "verified": "2026-11",
       "description": "State-by-state map of enacted and proposed health-AI laws plus tracked federal activity (Congress, HHS, White House). Joins Manatt and Ropes & Gray in the increasingly crowded health-AI tracking race; state data current as of May 2026."
@@ -1274,6 +1338,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-07",
       "verified": "2026-11",
       "description": "The canonical tracker of state laws on AI deepfakes in election communications: more than 30 states have one as of November 2026. Widely cited, with a named maintainer who accepts corrections."
@@ -1293,6 +1358,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-07",
       "verified": "2026-11",
       "description": "130+ state bills on protecting children from manipulative AI chatbots (feature bans, disclosure mandates, data privacy), paired with a model bill; last updated November 2026. The advocacy-side counterpart to FPF's chatbot tracker."
@@ -1312,6 +1378,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-07",
       "verified": "2026-11",
       "description": "The election-data nonprofit's entry into AI bill tracking: all-50-state coverage with bill status, summaries, and trifecta filters, plus a dedicated AI deepfake legislation module. A nonpartisan civic-infrastructure alternative to the commercial trackers."
@@ -1331,6 +1398,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-07",
       "verified": "2026-11",
       "description": "The only tracker focused specifically on national AI strategies, organized by UN region, income level, GDPR status, and AI-privacy intersections. Where OECD.AI buries strategies among 1,000+ initiatives, this isolates them, with a privacy-focused lens not found elsewhere. Updated July 2026."
@@ -1350,6 +1418,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": false,
+      "data": false,
       "added": "2026-07",
       "verified": "2026-11",
       "description": "87 bills across 28 states in the 2026 session on AI in classroom instruction (13 enacted as of October), organized by theme (AI literacy, governance, task forces). The only dedicated education-AI legislative tracker."
@@ -1369,6 +1438,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-11",
       "verified": "2026-11",
       "description": "Launched July 2026. Map of enacted state AI laws sorted into three domains: omnibus consumer and transparency laws, health care and life sciences, and employment and workforce. Each state links to bill summaries, passage dates, and firm analysis. One of the few trackers with a dedicated employment-AI slice."
@@ -1388,6 +1458,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": false,
+      "data": false,
       "added": "2026-11",
       "verified": "2026-11",
       "description": "Yearly review of enacted state technology laws and litigation, with AI as one of eight categories: 159 AI laws among 345 tech laws across 48 states in 2025. A mid-year update in Tech Policy Press counted 109 AI laws in 29 states by July 2026. Counts enacted laws only, broken down by party and trifecta control. Published each December."
@@ -1407,6 +1478,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": false,
+      "data": true,
       "added": "2026-07",
       "verified": "2026-11",
       "description": "The statutory census of federal AI: 3,611 reported use cases (445 high-impact) across 56 agency submissions in the 2025 edition, more than double 2024. Published as CSVs on GitHub."
@@ -1426,6 +1498,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-07",
       "verified": "2026-11",
       "description": "155 published records describing how UK public bodies use algorithmic tools in decision-making, mandatory for central government since 2025. The official counterpart to the Public Law Project's TAG Register."
@@ -1445,6 +1518,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-07",
       "verified": "2026-11",
       "description": "More than 1,500 published algorithm descriptions from Dutch public bodies, focused on impactful and high-risk (AI Act) systems. The largest national algorithm register in the world; Amsterdam's pioneering city register now lives here too."
@@ -1464,6 +1538,7 @@
       "status": "Stale",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-07",
       "verified": "2026-11",
       "description": "Searchable databases of 300+ AI standards across ISO, IEC, IEEE, ETSI, ITU and more, plus a companion policy library. Standards are where AI governance gets operationalized, and this is the only place tracking them systematically. As of November 2026 the site is offline while the hub moves to a new phase led by NPL and BSI, with the Alan Turing Institute stepping back; it says it will reopen soon."
@@ -1483,6 +1558,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-07",
       "verified": "2026-11",
       "description": "~260 US cases involving AI, from hiring and sentencing algorithms to genAI training suits and chatbot liability. Broader in scope than the copyright-focused trackers; maintained by Prof. Robert Brauneis and GW law students."
@@ -1502,6 +1578,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-07",
       "verified": "2026-11",
       "description": "19,000+ AI incidents and hazards auto-detected from ~150,000 news articles a day, classified by harm type, severity, industry, and which OECD AI principle was violated. The methodology-driven, policy-oriented counterpart to the community-driven AI Incident Database."
@@ -1521,6 +1598,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": true,
       "added": "2026-07",
       "verified": "2026-11",
       "description": "1,000+ incidents and controversies driven by AI, algorithms, and automation. Broader than the AI Incident Database because it also covers ethics disputes, not just harm events. Published as an open Google Sheet with a harms taxonomy; cited by the OECD and Our World in Data."
@@ -1540,6 +1618,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-07",
       "verified": "2026-11",
       "description": "Watchdog nonprofit monitoring hundreds of AI-company policy documents for quiet edits, walked-back safety commitments, and violations, plus a companion scorecard of 2024 Seoul Summit commitment fulfillment. Complements METR by tracking how published safety policies change over time."
@@ -1559,6 +1638,7 @@
       "status": "Active",
       "cost": "Free reports; dashboard by subscription",
       "interactive": true,
+      "data": false,
       "added": "2026-07",
       "verified": "2026-11",
       "description": "State attorney general enforcement actions in AI, privacy, and cybersecurity since 2020, categorized and charted (314 through April 2026, with AI the fastest-growing category). The second report, released October 2026, covers May through September and comes with a subscription AG Interactive Dashboard for clients. The only tracker covering AI enforcement by state attorneys general."
@@ -1578,6 +1658,7 @@
       "status": "Stale",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-07",
       "verified": "2026-11",
       "description": "One of the longest-running and most-cited GenAI copyright case trackers, covering copyright and class-action litigation with linked analysis. The page now says the tracker is in archive mode, with no changes since July 2026."
@@ -1597,6 +1678,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-07",
       "verified": "2026-11",
       "description": "Filterable database of GenAI IP litigation with summaries, filing dates, and CourtListener links to primary court documents; one of the very few trackers linking every case to the actual docket. Adds UK, German, and Indian cases the US-centric trackers skip. Updated October 2026."
@@ -1616,6 +1698,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-07",
       "verified": "2026-11",
       "description": "1,700+ AI risks extracted from 65 frameworks and 2,200+ mitigations from 47, plus an incident tracker and a governance mapping that classifies 1,000+ AGORA policy documents by the risks they address."
@@ -1635,6 +1718,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-07",
       "verified": "2026-11",
       "description": "Grades 12 frontier AI companies on risk-management maturity across four dimensions. No company scores above 'weak'; top marks go to Anthropic (35%) and OpenAI (34%)."
@@ -1654,6 +1738,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": false,
+      "data": false,
       "added": "2026-07",
       "verified": "2026-11",
       "description": "Expert panel grades 9 leading AI companies across 6 safety domains. Summer 2026 (fourth edition): Anthropic leads with a C+, OpenAI and Google DeepMind take a C; newcomers include DeepSeek, Alibaba Cloud, and Mistral."
@@ -1673,6 +1758,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": false,
+      "data": false,
       "added": "2026-07",
       "verified": "2026-11",
       "description": "The reference archive of frontier AI companies' published safety frameworks, versioned as they change (latest: Meta's Superintelligence Scaling Framework v2.1, October 2026), with a 'Common Elements' comparison of shared framework features."
@@ -1692,6 +1778,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": true,
       "added": "2026-11",
       "verified": "2026-11",
       "description": "2,300+ court and tribunal decisions worldwide in which a party relied on AI-hallucinated content, usually fabricated citations. Filterable by jurisdiction, party type, AI tool, and sanction, with monetary penalties recorded; downloadable as CSV under CC BY 4.0. The standard reference for AI misuse in court filings, and a natural companion to Ropes & Gray's court order tracker."
@@ -1711,6 +1798,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-11",
       "verified": "2026-11",
       "description": "Launched March 2026. Lawsuits and regulatory oversight actions against tech companies across AI, privacy, antitrust, Section 230, and addictive design, kept current by Georgetown students. Broader than AI alone, but it covers the chatbot-harm and product-liability suits that the copyright trackers leave out."
@@ -1730,6 +1818,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": false,
+      "data": false,
       "added": "2026-11",
       "verified": "2026-11",
       "description": "Running commentary on the major generative-AI copyright suits affecting media and entertainment (Concord v. Anthropic, Kadrey v. Meta, the SDNY multidistrict litigation, the Udio cases), prepared by principal Avery Williams. Narrower than Prof. Lee's tracker but with more analysis per case; latest edition September 2026."
@@ -1749,6 +1838,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": false,
+      "data": false,
       "added": "2026-11",
       "verified": "2026-11",
       "description": "Published November 2026. Collects guidance from bar associations and other legal professional bodies on lawyers' use of AI, together with court orders and rules on AI in filings and AI-generated evidence, organized by country. Covers ground close to Ropes & Gray's court order tracker, but worldwide and with professional-conduct guidance included. Delivered as a PDF, so less searchable than the interactive trackers."
@@ -1768,6 +1858,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": false,
+      "data": false,
       "added": "2026-11",
       "verified": "2026-11",
       "description": "Running log of about 70 AI-related publications from financial regulators and standard setters, grouped by region: BIS, FSB, and IOSCO; ESMA, EBA, and the ECB; the FCA and Bank of England; Hong Kong, Singapore, and India. Each entry has a date, a short description, and a link to the source. One of the few trackers dedicated to AI in financial services, though it is thin on the United States; latest entry September 2026."
@@ -1787,6 +1878,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": false,
+      "data": false,
       "added": "2026-11",
       "verified": "2026-11",
       "description": "About 43 federal and state measures chosen for their effect on brands, retailers, platforms, and IP owners, in five groups: AI training and IP, digital replicas and likeness, AI-generated content and disclosure, agents and algorithmic pricing, and safety and governance. Each entry gives key provisions, business implications, and status. Not exhaustive by design; last updated November 2026. The publication keeps a companion running list of AI lawsuits."
@@ -1806,6 +1898,7 @@
       "status": "Active",
       "cost": "Free database and CSV; Pro tier $49/month",
       "interactive": true,
+      "data": true,
       "added": "2026-11",
       "verified": "2026-11",
       "description": "379 lawsuits and government actions against 129 AI companies as of November 2026, each with court, docket number, judge, status, and a linked source. Wider than the copyright trackers: 178 copyright cases alongside chatbot-harm, privacy, state enforcement, and data-center disputes. Open cases are re-checked weekly, and the full dataset is a free CSV under CC BY 4.0. A new site (it listed 248 cases in early October 2026) run by a single named editor with no stated affiliation; it discloses that language models help find filings and draft text, with editor review before publication. Alerts, the hearing calendar, and filtered exports sit behind a $49-a-month Pro tier."
@@ -1825,6 +1918,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": true,
+      "data": false,
       "added": "2026-11",
       "verified": "2026-11",
       "description": "Dashboard of lawsuits filed since February 2021 that involve AI tools at work: generative AI, resume screeners, electronic monitoring, notetakers, and call recording. Searchable by state, industry, claim type, and state or federal court. The litigation counterpart to the firm's AI Legislation Map, and one of the few case trackers built around workplace AI."
@@ -1844,6 +1938,7 @@
       "status": "Active",
       "cost": "Free",
       "interactive": false,
+      "data": false,
       "added": "2026-11",
       "verified": "2026-11",
       "description": "Case summaries of AI copyright litigation outside the United States: 26 cases at last count, mostly from Germany, Hungary, the Netherlands, and China, with single cases from the UK, France, Italy, Austria, the Czech Republic, and India. Each summary sets out the parties' arguments and the judgment. Covers the European and Chinese rulings that the US-centred trackers mostly leave out; newest entry November 2026."

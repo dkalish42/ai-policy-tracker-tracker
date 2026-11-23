@@ -38,6 +38,7 @@ tab, jurisdiction, or topic that is not defined at the top of `trackers.json`.
 | `tab` | `policy`, `litigation`, or `adjacent`. |
 | `jurisdictions` | Any of `us-fed`, `us-states`, `eu`, `intl`. Drives the "Covers" filter and the quiz. |
 | `topics` | One or more keys from the `topics` list at the top of the file. Use `general` for cross-sector trackers. |
+| `interactive`, `data` | `true` or `false`. `data` means the tracker offers its data to download (CSV, spreadsheet, dataset, or API) without a sign-up; set it only when you have seen the download. The quiz uses both. |
 | `status` | `Active` or `Stale`. The rules are in the "How trackers are chosen" panel on the site. |
 | `added`, `verified` | Year and month, like `2026-11`. Entries added in the most recent month get a "New" tag. |
 

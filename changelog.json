@@ -6,7 +6,8 @@
       "Added 11 trackers. Policy: Epstein Becker Green State AI Law Tracker, NYU State Technology Policy Report, IAPP AI Legal Ethics and Responsibilities Tracker, ICMA AI Regulatory Developments Tracker, TFL AI Legislation Tracker. Litigation: AI Hallucination Cases Database, Tech Litigation Tracker (TRAL), McKool Smith AI Litigation Tracker, AI Lawsuit Tracker, Fisher Phillips AI Litigation Tracker, CMS AI and Copyright Case Tracker.",
       "Status changes: Brennan Center back to Active; BakerHostetler and AI Standards Hub marked Stale.",
       "Corrected the Council of Europe AI convention entry (not yet in force) and the EU AI Act high-risk date (December 2027 after the Omnibus). Refreshed counts and dates on about 35 entries.",
-      "New on the site: a Litigation & Enforcement tab, filters by jurisdiction and topic, links that reopen any view or tracker, CSV and JSON downloads, published inclusion criteria, and this changelog."
+      "New on the site: a Litigation & Enforcement tab, filters by jurisdiction and topic, links that reopen any view or tracker, CSV and JSON downloads, published inclusion criteria, and this changelog.",
+      "The Which tracker? quiz now asks what you are trying to follow, matches on topic and on downloadable data, and opens each match in the list."
     ]
   },
   {

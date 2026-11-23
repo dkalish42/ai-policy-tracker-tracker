@@ -27,7 +27,7 @@ const trackers = doc.trackers;
 
 // ── Validate ────────────────────────────────────────────────
 const errors = [];
-const REQUIRED = ["id", "name", "org", "category", "tab", "scope", "jurisdictions", "topics", "format", "url", "cadence", "status", "cost", "interactive", "added", "verified", "description"];
+const REQUIRED = ["id", "name", "org", "category", "tab", "scope", "jurisdictions", "topics", "format", "url", "cadence", "status", "cost", "interactive", "data", "added", "verified", "description"];
 const templateIds = new Set([...template.matchAll(/\bid="([^"{}$]+)"/g)].map(m => m[1]));
 const RESERVED = new Set(["gaps", "changelog", "criteria", "suggest", "meta-tracker", ...templateIds]);
 const seen = new Set();
@@ -48,6 +48,7 @@ for (const t of trackers) {
   if (!/^https?:\/\//.test(t.url || "")) errors.push(`${where}: url must start with http(s)://`);
   for (const k of ["added", "verified"]) if (!/^\d{4}-(0[1-9]|1[0-2])$/.test(t[k] || "")) errors.push(`${where}: ${k} must look like 2026-11`);
   if (typeof t.interactive !== "boolean") errors.push(`${where}: interactive must be true or false`);
+  if (typeof t.data !== "boolean") errors.push(`${where}: data must be true or false`);
 }
 if (!/^\d{4}-\d{2}-\d{2}$/.test(doc.reviewed || "")) errors.push("reviewed must look like 2026-11-23");
 for (const e of changelog) if (!/^\d{4}-\d{2}-\d{2}$/.test(e.date || "") || !e.title || !Array.isArray(e.items)) errors.push(`changelog entry ${JSON.stringify(e.title)} needs date, title and items`);
@@ -70,7 +71,7 @@ const count = tab => trackers.filter(t => t.tab === tab).length;
 const pageData = trackers.map(t => ({
   id: t.id, n: t.name, o: t.org, c: t.category, cl: doc.categories[t.category], s: t.scope, st2: t.jurisdictions,
   tp: t.topics, f: t.format, u: t.url, cd: t.cadence, d: t.description, st: t.status, cost: t.cost,
-  interactive: t.interactive, tab: t.tab, a: t.added, v: t.verified,
+  interactive: t.interactive, dl: t.data, tab: t.tab, a: t.added, v: t.verified,
 }));
 // "<" is escaped so no description can ever close the script tag.
 const js = v => JSON.stringify(v).replace(/</g, "\\u003c");
@@ -97,7 +98,7 @@ function staticRow(t) {
 <td class="link-cell"><a href="${esc(t.url)}" rel="noopener noreferrer">${esc(domain.length > 24 ? domain.slice(0, 22) + "…" : domain)}</a></td>
 </tr>
 <tr class="desc-row" data-tab="${t.tab}"><td colspan="9">${esc(t.description)}
-<div class="desc-meta"><span class="tags">${tags}</span><span>Cost: ${esc(t.cost)}</span><span>Last verified ${shortMonth(t.verified)}</span></div></td></tr>`;
+<div class="desc-meta"><span class="tags">${tags}</span><span>Cost: ${esc(t.cost)}</span>${t.data ? "<span>Downloadable data</span>" : ""}<span>Last verified ${shortMonth(t.verified)}</span></div></td></tr>`;
 }
 const rows = tabNames.map(tab => {
   const list = trackers.filter(t => t.tab === tab).sort((a, b) => a.name.localeCompare(b.name));
@@ -158,7 +159,7 @@ const COLS = [
   ["id", t => t.id], ["name", t => t.name], ["organization", t => t.org], ["category", t => doc.categories[t.category]],
   ["tab", t => doc.tabs[t.tab]], ["scope", t => t.scope], ["jurisdictions", t => t.jurisdictions.map(j => doc.jurisdictions[j]).join("; ")],
   ["topics", t => t.topics.map(x => doc.topics[x]).join("; ")], ["format", t => t.format], ["url", t => t.url],
-  ["cadence", t => t.cadence], ["status", t => t.status], ["cost", t => t.cost], ["interactive", t => (t.interactive ? "yes" : "no")],
+  ["cadence", t => t.cadence], ["status", t => t.status], ["cost", t => t.cost], ["interactive", t => (t.interactive ? "yes" : "no")], ["downloadable_data", t => (t.data ? "yes" : "no")],
   ["added", t => t.added], ["last_verified", t => t.verified], ["description", t => t.description],
 ];
 // The leading BOM is what makes Excel read the file as UTF-8.
