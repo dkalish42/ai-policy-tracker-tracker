@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ai-policy-tracker-tracker.vercel.app/sitemap.xml

@@ -1,0 +1,53 @@
+[
+  {
+    "date": "2026-11-23",
+    "title": "November 2026 refresh and site update",
+    "items": [
+      "Added 11 trackers. Policy: Epstein Becker Green State AI Law Tracker, NYU State Technology Policy Report, IAPP AI Legal Ethics and Responsibilities Tracker, ICMA AI Regulatory Developments Tracker, TFL AI Legislation Tracker. Litigation: AI Hallucination Cases Database, Tech Litigation Tracker (TRAL), McKool Smith AI Litigation Tracker, AI Lawsuit Tracker, Fisher Phillips AI Litigation Tracker, CMS AI and Copyright Case Tracker.",
+      "Status changes: Brennan Center back to Active; BakerHostetler and AI Standards Hub marked Stale.",
+      "Corrected the Council of Europe AI convention entry (not yet in force) and the EU AI Act high-risk date (December 2027 after the Omnibus). Refreshed counts and dates on about 35 entries.",
+      "New on the site: a Litigation & Enforcement tab, filters by jurisdiction and topic, links that reopen any view or tracker, CSV and JSON downloads, published inclusion criteria, and this changelog."
+    ]
+  },
+  {
+    "date": "2026-07-17",
+    "title": "July 2026 refresh",
+    "items": [
+      "Full accuracy review of every entry. The catalog grew from 52 to 84 trackers.",
+      "Added regional trackers (Africa AI Policy Tool, ILIA, the LatAm AI Regulation Repository, SEA AI Observatory), EU AI Act trackers, government algorithm registers, incident databases, and AI company safety scorecards.",
+      "Removed Husch Blackwell (tracker page retired). AGORA returned as a living archive, and the TAG Register was marked Stale.",
+      "This refresh was published in November along with the next one."
+    ]
+  },
+  {
+    "date": "2026-05-05",
+    "title": "Academic and Independent categories",
+    "items": [
+      "Added Prof. Edward Lee's AI Copyright Case Tracker.",
+      "Introduced Academic and Independent categories and reclassified nonprofit associations."
+    ]
+  },
+  {
+    "date": "2026-05-03",
+    "title": "Adjacent / Related tab",
+    "items": [
+      "Added a second tab for resources that sit next to policy tracking: incident databases, registers, scorecards, and case law.",
+      "Added Spain AI Policy the next day."
+    ]
+  },
+  {
+    "date": "2026-04-29",
+    "title": "15 trackers added",
+    "items": ["Added 15 trackers and refreshed 11 existing entries."]
+  },
+  {
+    "date": "2026-04-15",
+    "title": "5 trackers added",
+    "items": ["Added 5 trackers, including the Future of Privacy Forum's chatbot legislation tracker, and refreshed MultiState's 2026 figures."]
+  },
+  {
+    "date": "2026-03-11",
+    "title": "Launch",
+    "items": ["Launched with 31 trackers."]
+  }
+]

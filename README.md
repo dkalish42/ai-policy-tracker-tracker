@@ -1,0 +1,65 @@
+# AI Policy Tracker Tracker
+
+A catalog of the trackers that follow AI law, regulation, litigation, and policy.
+Live at https://ai-policy-tracker-tracker.vercel.app/
+
+## How the site is put together
+
+| File | What it is |
+| --- | --- |
+| `trackers.json` | Every tracker. This is the file to edit. It is also the public JSON download. |
+| `changelog.json` | The "What's new" list, newest first. |
+| `src/template.html` | The page itself: layout, styles, and scripts. |
+| `build.mjs` | Turns the three files above into `index.html`, `trackers.csv`, and `sitemap.xml`. |
+| `index.html`, `trackers.csv`, `sitemap.xml` | Generated. Do not edit by hand; changes are overwritten by the next build. |
+| `scripts/check-links.mjs` | Checks every tracker link. |
+
+Vercel serves the repository as plain static files. There is no build step on Vercel, so
+the generated files are committed.
+
+## Updating the list
+
+1. Edit `trackers.json`: change an entry, or add one (copy a neighbour and give it a new `id`).
+2. Set `verified` on every entry you rechecked (for example `"2026-11"`), and set the
+   top-level `reviewed` date after a full pass.
+3. Add an entry to the top of `changelog.json` saying what changed.
+4. Run `node build.mjs`.
+5. Commit everything, including the regenerated files, and push. Vercel deploys `main`.
+
+`node build.mjs` refuses to build if an entry is missing a field or uses a category,
+tab, jurisdiction, or topic that is not defined at the top of `trackers.json`.
+
+### Fields
+
+| Field | Notes |
+| --- | --- |
+| `id` | Lowercase words joined by hyphens. It is the tracker's permanent link (`/#id`), so do not change it after publishing. |
+| `category` | `gov`, `think`, `law`, `biz`, `acad`, or `ind`. |
+| `tab` | `policy`, `litigation`, or `adjacent`. |
+| `jurisdictions` | Any of `us-fed`, `us-states`, `eu`, `intl`. Drives the "Covers" filter and the quiz. |
+| `topics` | One or more keys from the `topics` list at the top of the file. Use `general` for cross-sector trackers. |
+| `status` | `Active` or `Stale`. The rules are in the "How trackers are chosen" panel on the site. |
+| `added`, `verified` | Year and month, like `2026-11`. Entries added in the most recent month get a "New" tag. |
+
+To add a topic, add it to `topics` at the top of `trackers.json`; it appears in the
+filter once a tracker uses it.
+
+## Checks
+
+- `node build.mjs --check` fails if `index.html` is out of date with `trackers.json`.
+  GitHub runs it on every push to `main` and on pull requests.
+- `node scripts/check-links.mjs` reports dead links. GitHub runs it every Monday and
+  emails the repository owner if a link looks dead. Sites that refuse automated requests
+  are listed as "blocked", not dead; check those by hand during a refresh. If a working
+  page keeps being reported dead, add its domain to `scripts/link-check-known.json`.
+  GitHub pauses scheduled checks after 60 days without a commit; re-enable them from the
+  Actions tab.
+
+## Links that reopen a view
+
+The address bar always describes the current view, so any view can be shared by copying it:
+
+- `/?tab=litigation&topic=ip` opens a tab with filters applied
+  (`tab`, `type`, `covers`, `topic`, `status=active`, `q`, `sort`)
+- `/#ai-lawsuit-tracker` opens one tracker
+- `/#changelog`, `/#criteria`, `/#gaps`, `/#suggest` open those panels

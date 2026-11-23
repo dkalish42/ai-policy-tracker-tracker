@@ -1,0 +1,6 @@
+# Build inputs and repo housekeeping. Not part of the published site.
+src
+scripts
+build.mjs
+README.md
+.github

@@ -1,0 +1,35 @@
+name: Site checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: "17 13 * * 1" # Mondays, 13:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-in-sync:
+    name: index.html matches trackers.json
+    if: github.event_name != 'schedule'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node build.mjs --check
+
+  links:
+    name: Weekly link check
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/check-links.mjs
